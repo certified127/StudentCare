@@ -1,23 +1,24 @@
+"use client"
 // src/components/Login.jsx
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Login({ setIsLoggedIn }) {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     // Simple validation
     if (!email || !password) {
-      setError('Please fill in all fields')
+      setError("Please fill in all fields")
       return
     }
     // In a real app, you would call an API here
     setIsLoggedIn(true)
-    navigate('/')
+    navigate("/")
   }
 
   return (
@@ -26,7 +27,7 @@ export default function Login({ setIsLoggedIn }) {
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or{' '}
+            Or{" "}
             <Link to="/signup" className="font-medium text-primary hover:text-primary/80">
               create a new account
             </Link>
@@ -37,7 +38,11 @@ export default function Login({ setIsLoggedIn }) {
             <div className="flex">
               <div className="text-red-500">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div className="ml-3">
@@ -101,8 +106,12 @@ export default function Login({ setIsLoggedIn }) {
           </div>
 
           <div>
-            
-            <Link to="/DashboardStudent" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text- bg-blue-400 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">Sign in</Link>
+            <Link
+              to="/DashboardStudent"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text- bg-blue-400 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+            >
+              Sign in
+            </Link>
           </div>
         </form>
       </div>

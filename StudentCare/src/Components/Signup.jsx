@@ -1,22 +1,23 @@
+"use client"
 // src/components/Signup.jsx
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Signup({ setIsLoggedIn }) {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    userType: 'student'
+    name: "",
+    email: "",
+    password: "",
+    userType: "student",
   })
-  const [error, setError] = useState('')
+  const [error, setError] = useState("")
   const navigate = useNavigate()
 
   const handleChange = (e) => {
     const { name, value } = e.target
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }))
   }
 
@@ -24,12 +25,12 @@ export default function Signup({ setIsLoggedIn }) {
     e.preventDefault()
     // Simple validation
     if (!formData.name || !formData.email || !formData.password) {
-      setError('Please fill in all fields')
+      setError("Please fill in all fields")
       return
     }
     // In a real app, you would call an API here
     setIsLoggedIn(true)
-    navigate('/')
+    navigate("/")
   }
 
   return (
@@ -38,7 +39,7 @@ export default function Signup({ setIsLoggedIn }) {
         <div>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create your account</h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Or{' '}
+            Or{" "}
             <Link to="/login" className="font-medium text-primary hover:text-primary/80">
               sign in to an existing account
             </Link>
@@ -49,7 +50,11 @@ export default function Signup({ setIsLoggedIn }) {
             <div className="flex">
               <div className="text-red-500">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  <path
+                    fillRule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                    clipRule="evenodd"
+                  />
                 </svg>
               </div>
               <div className="ml-3">
@@ -131,7 +136,14 @@ export default function Signup({ setIsLoggedIn }) {
               className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
             />
             <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
-              I agree to the <a href="#" className="text-primary hover:text-primary/80">Terms of Service</a> and <a href="#" className="text-primary hover:text-primary/80">Privacy Policy</a>
+              I agree to the{" "}
+              <a href="#" className="text-primary hover:text-primary/80">
+                Terms of Service
+              </a>{" "}
+              and{" "}
+              <a href="#" className="text-primary hover:text-primary/80">
+                Privacy Policy
+              </a>
             </label>
           </div>
 

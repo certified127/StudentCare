@@ -1,9 +1,10 @@
+"use client"
 // src/App.jsx
-import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Home from './Components/Home'
-import Login from './Components/Login'
-import Signup from './Components/Signup'
+import { useState } from "react"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import Home from "./Components/Home"
+import Login from "./Components/Login"
+import Signup from "./Components/Signup"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)

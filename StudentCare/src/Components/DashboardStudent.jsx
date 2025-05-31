@@ -1,79 +1,77 @@
-import { useState, useEffect } from 'react';
-import { 
-  FaUserMd, 
-  FaPlusCircle, 
-  FaCommentMedical, 
-  FaCalendarAlt, 
-  FaPills, 
-  FaBars, 
+"use client"
+import { useState, useEffect } from "react"
+import {
+  FaUserMd,
+  FaPlusCircle,
+  FaCommentMedical,
+  FaCalendarAlt,
+  FaPills,
+  FaBars,
   FaTimes,
-  FaHome,
   FaUserCircle,
   FaBell,
-  FaCog} from 'react-icons/fa';
+  FaCog,
+} from "react-icons/fa"
 
-const DashboardStudent= () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
-  const [activeTab, setActiveTab] = useState('Doctors Directory');
+const DashboardStudent = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [isMobile, setIsMobile] = useState(false)
+  const [activeTab, setActiveTab] = useState("Doctors Directory")
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 768)
       if (window.innerWidth < 768) {
-        setSidebarOpen(false);
+        setSidebarOpen(false)
       } else {
-        setSidebarOpen(true);
+        setSidebarOpen(true)
       }
-    };
+    }
 
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
   const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+    setSidebarOpen(!sidebarOpen)
+  }
 
   const navItems = [
-    { name: 'Doctors Directory', icon: <FaUserMd className="text-lg" /> },
-    { name: 'Emergency', icon: <FaPlusCircle className="text-lg" /> },
-    { name: 'Care Chat AI', icon: <FaCommentMedical className="text-lg" /> },
-    { name: 'Appointments Booking', icon: <FaCalendarAlt className="text-lg" /> },
-    { name: 'Medications Reminder', icon: <FaPills className="text-lg" /> },
-  ];
+    { name: "Doctors Directory", icon: <FaUserMd className="text-lg" /> },
+    { name: "Emergency", icon: <FaPlusCircle className="text-lg" /> },
+    { name: "Care Chat AI", icon: <FaCommentMedical className="text-lg" /> },
+    { name: "Appointments Booking", icon: <FaCalendarAlt className="text-lg" /> },
+    { name: "Medications Reminder", icon: <FaPills className="text-lg" /> },
+  ]
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'Doctors Directory':
-        return <div className="p-4">Doctors Directory Content</div>;
-      case 'Emergency':
-        return <div className="p-4">Emergency Contacts and Information</div>;
-      case 'Care Chat AI':
-        return <div className="p-4">AI Chat Interface</div>;
-      case 'Appointments Booking':
-        return <div className="p-4">Appointment Scheduling System</div>;
-      case 'Medications Reminder':
-        return <div className="p-4">Medication Tracking and Alerts</div>;
+      case "Doctors Directory":
+        return <div className="p-4">Doctors Directory Content</div>
+      case "Emergency":
+        return <div className="p-4">Emergency Contacts and Information</div>
+      case "Care Chat AI":
+        return <div className="p-4">AI Chat Interface</div>
+      case "Appointments Booking":
+        return <div className="p-4">Appointment Scheduling System</div>
+      case "Medications Reminder":
+        return <div className="p-4">Medication Tracking and Alerts</div>
       default:
-        return <div className="p-4">Welcome to the Dashboard</div>;
+        return <div className="p-4">Welcome to the Dashboard</div>
     }
-  };
+  }
 
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar Backdrop (mobile only) */}
       {isMobile && sidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-20"
-          onClick={toggleSidebar}
-        ></div>
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-20" onClick={toggleSidebar}></div>
       )}
 
       {/* Sidebar */}
       <div
-        className={`bg-blue-800 text-white ${sidebarOpen ? 'w-64' : 'w-0'} 
+        className={`bg-blue-800 text-white ${sidebarOpen ? "w-64" : "w-0"} 
         fixed md:relative z-30 h-full transition-all duration-300 ease-in-out`}
       >
         {sidebarOpen && (
@@ -81,10 +79,7 @@ const DashboardStudent= () => {
             {/* Sidebar Header */}
             <div className="flex items-center justify-between p-4 border-b border-blue-700">
               <h1 className="text-xl font-bold">Care Dashboard</h1>
-              <button
-                onClick={toggleSidebar}
-                className="md:hidden text-white focus:outline-none"
-              >
+              <button onClick={toggleSidebar} className="md:hidden text-white focus:outline-none">
                 <FaTimes />
               </button>
             </div>
@@ -97,7 +92,7 @@ const DashboardStudent= () => {
                     <button
                       onClick={() => setActiveTab(item.name)}
                       className={`flex items-center w-full px-6 py-3 text-left transition-colors duration-200 
-                        ${activeTab === item.name ? 'bg-blue-700' : 'hover:bg-blue-600'}`}
+                        ${activeTab === item.name ? "bg-blue-700" : "hover:bg-blue-600"}`}
                     >
                       <span className="mr-3">{item.icon}</span>
                       <span>{item.name}</span>
@@ -122,16 +117,13 @@ const DashboardStudent= () => {
       </div>
 
       {/* Main Content */}
-      <div className={`flex-1 flex flex-col overflow-hidden ${sidebarOpen && !isMobile ? 'ml-64' : ''}`}>
+      <div className={`flex-1 flex flex-col overflow-hidden ${sidebarOpen && !isMobile ? "ml-64" : ""}`}>
         {/* Top Navigation */}
         <header className="bg-white shadow-sm z-10">
           <div className="flex items-center justify-between p-4">
             <div className="flex items-center">
               {!sidebarOpen && (
-                <button
-                  onClick={toggleSidebar}
-                  className="mr-4 text-gray-600 focus:outline-none"
-                >
+                <button onClick={toggleSidebar} className="mr-4 text-gray-600 focus:outline-none">
                   <FaBars />
                 </button>
               )}
@@ -154,12 +146,10 @@ const DashboardStudent= () => {
         </header>
 
         {/* Main Content Area */}
-        <main className="flex-1 overflow-y-auto bg-gray-50 p-4">
-          {renderContent()}
-        </main>
+        <main className="flex-1 overflow-y-auto bg-gray-50 p-4">{renderContent()}</main>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DashboardStudent;
+export default DashboardStudent
