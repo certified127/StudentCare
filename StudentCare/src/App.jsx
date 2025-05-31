@@ -13,15 +13,17 @@ function App() {
 
   useEffect(() => {
     setIsClient(true)
+    // Force dark mode
+    document.documentElement.classList.add("dark")
   }, [])
 
   if (!isClient) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>
+    return <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">Loading...</div>
   }
 
   return (
     <Router>
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col bg-gray-900 text-white">
         <Routes>
           <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />

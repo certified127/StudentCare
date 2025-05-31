@@ -1,5 +1,4 @@
 "use client"
-// src/components/Signup.jsx
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
@@ -30,37 +29,37 @@ export default function Signup({ setIsLoggedIn }) {
     }
     // In a real app, you would call an API here
     setIsLoggedIn(true)
-    navigate("/")
+    navigate("/dashboard")
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-10 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-10 left-10 w-72 h-72 bg-teal-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-2000"></div>
+        <div className="absolute bottom-10 left-1/2 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-4000"></div>
       </div>
 
-      <div className="max-w-md w-full space-y-8 bg-white/95 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-white/20 relative z-10">
+      <div className="max-w-md w-full space-y-8 bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-gray-700 relative z-10">
         <div className="text-center">
           <Link
             to="/"
-            className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-purple-500 bg-clip-text text-transparent"
           >
             StudentCare
           </Link>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">Join StudentCare</h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <h2 className="mt-6 text-3xl font-bold text-white">Join StudentCare</h2>
+          <p className="mt-2 text-sm text-gray-400">
             Already have an account?{" "}
-            <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-300">
+            <Link to="/login" className="font-medium text-teal-400 hover:text-teal-300 transition-colors duration-300">
               Sign in here
             </Link>
           </p>
         </div>
 
         {error && (
-          <div className="bg-red-50 border-l-4 border-red-500 p-4 rounded-lg">
+          <div className="bg-red-900/30 border-l-4 border-red-500 p-4 rounded-lg">
             <div className="flex">
               <div className="text-red-500">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
@@ -72,7 +71,7 @@ export default function Signup({ setIsLoggedIn }) {
                 </svg>
               </div>
               <div className="ml-3">
-                <p className="text-sm text-red-700">{error}</p>
+                <p className="text-sm text-red-400">{error}</p>
               </div>
             </div>
           </div>
@@ -81,7 +80,7 @@ export default function Signup({ setIsLoggedIn }) {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-5">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                 Full Name
               </label>
               <input
@@ -92,12 +91,12 @@ export default function Signup({ setIsLoggedIn }) {
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500"
+                className="block w-full px-4 py-3 border border-gray-600 bg-gray-700/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-500"
                 placeholder="Enter your full name"
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                 Email address
               </label>
               <input
@@ -108,12 +107,12 @@ export default function Signup({ setIsLoggedIn }) {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500"
+                className="block w-full px-4 py-3 border border-gray-600 bg-gray-700/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-500"
                 placeholder="Enter your email"
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
                 Password
               </label>
               <input
@@ -124,12 +123,12 @@ export default function Signup({ setIsLoggedIn }) {
                 required
                 value={formData.password}
                 onChange={handleChange}
-                className="block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-500"
+                className="block w-full px-4 py-3 border border-gray-600 bg-gray-700/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-500"
                 placeholder="Create a password"
               />
             </div>
             <div>
-              <label htmlFor="userType" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="userType" className="block text-sm font-medium text-gray-300 mb-2">
                 I am a
               </label>
               <select
@@ -137,7 +136,7 @@ export default function Signup({ setIsLoggedIn }) {
                 name="userType"
                 value={formData.userType}
                 onChange={handleChange}
-                className="block w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900"
+                className="block w-full px-4 py-3 border border-gray-600 bg-gray-700/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-white"
               >
                 <option value="student">Student</option>
                 <option value="professional">Healthcare Professional</option>
@@ -151,15 +150,15 @@ export default function Signup({ setIsLoggedIn }) {
               name="terms"
               type="checkbox"
               required
-              className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded mt-1"
+              className="h-4 w-4 text-teal-500 focus:ring-teal-500 border-gray-600 rounded mt-1 bg-gray-700"
             />
-            <label htmlFor="terms" className="ml-3 block text-sm text-gray-900 leading-relaxed">
+            <label htmlFor="terms" className="ml-3 block text-sm text-gray-300 leading-relaxed">
               I agree to the{" "}
-              <a href="#" className="text-blue-600 hover:text-blue-500 transition-colors duration-300">
+              <a href="#" className="text-teal-400 hover:text-teal-300 transition-colors duration-300">
                 Terms of Service
               </a>{" "}
               and{" "}
-              <a href="#" className="text-blue-600 hover:text-blue-500 transition-colors duration-300">
+              <a href="#" className="text-teal-400 hover:text-teal-300 transition-colors duration-300">
                 Privacy Policy
               </a>
             </label>
@@ -168,18 +167,18 @@ export default function Signup({ setIsLoggedIn }) {
           <div>
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 shadow-lg transform hover:scale-105"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-gray-900 bg-gradient-to-r from-teal-500 to-purple-600 hover:from-teal-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all duration-300 shadow-lg shadow-purple-900/30 transform hover:scale-105"
             >
               Create Account
             </button>
           </div>
 
           <div className="text-center">
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-gray-400">
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-300"
+                className="font-medium text-teal-400 hover:text-teal-300 transition-colors duration-300"
               >
                 Sign in
               </Link>
