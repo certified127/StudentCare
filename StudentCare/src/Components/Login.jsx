@@ -18,7 +18,7 @@ export default function Login({ setIsLoggedIn }) {
     }
     // In a real app, you would call an API here
     setIsLoggedIn(true)
-    navigate("/")
+    navigate("/dashboard")
   }
 
   return (
@@ -135,7 +135,7 @@ export default function Login({ setIsLoggedIn }) {
             <p className="text-sm text-gray-600">
               New to StudentCare?{" "}
               <Link
-                to="/signup"
+                to="/dashboard"
                 className="font-medium text-blue-600 hover:text-blue-500 transition-colors duration-300"
               >
                 Create an account

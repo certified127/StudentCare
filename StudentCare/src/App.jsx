@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Home from "./Components/Home"
 import Login from "./Components/Login"
 import Signup from "./Components/Signup"
+import DashboardStudent from "./Components/DashboardStudent"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
           <Route path="/signup" element={<Signup setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/dashboard" element={<DashboardStudent />} />
         </Routes>
       </div>
     </Router>
