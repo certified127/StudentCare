@@ -20,17 +20,21 @@ const DashboardStudent = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768)
-      if (window.innerWidth < 768) {
-        setSidebarOpen(false)
-      } else {
-        setSidebarOpen(true)
+      if (typeof window !== "undefined") {
+        setIsMobile(window.innerWidth < 768)
+        if (window.innerWidth < 768) {
+          setSidebarOpen(false)
+        } else {
+          setSidebarOpen(true)
+        }
       }
     }
 
     handleResize()
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   const toggleSidebar = () => {
