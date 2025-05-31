@@ -15,24 +15,24 @@ export default function Login({ setIsLoggedIn }) {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-      {/* Background decorations */}
+    <div className="min-h-screen flex items-center justify-center bg-slate-900 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-teal-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-2000"></div>
-        <div className="absolute bottom-10 left-1/2 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-10 left-10 w-64 h-64 sm:w-80 sm:h-80 bg-teal-500/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div className="absolute top-40 right-10 w-64 h-64 sm:w-80 sm:h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse-glow animation-delay-2000"></div>
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 w-64 h-64 sm:w-80 sm:h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-glow animation-delay-4000"></div>
       </div>
 
-      <div className="max-w-md w-full space-y-8 bg-gray-800/90 backdrop-blur-sm p-10 rounded-3xl shadow-2xl border border-gray-700 relative z-10">
+      <div className="max-w-md w-full space-y-6 sm:space-y-8 glass p-6 sm:p-8 lg:p-10 rounded-3xl shadow-2xl relative z-10">
         <div className="text-center">
           <Link
             to="/"
-            className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-purple-500 bg-clip-text text-transparent"
+            className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-teal-400 via-cyan-400 to-purple-500 bg-clip-text text-transparent"
           >
             StudentCare
           </Link>
-          <h2 className="mt-6 text-3xl font-bold text-white">Welcome back!</h2>
-          <p className="mt-2 text-sm text-gray-400">
+          <h2 className="mt-4 sm:mt-6 text-2xl sm:text-3xl font-bold text-white">Welcome back!</h2>
+          <p className="mt-2 text-sm text-slate-400">
             Don't have an account?{" "}
             <Link to="/signup" className="font-medium text-teal-400 hover:text-teal-300 transition-colors duration-300">
               Sign up here
@@ -40,10 +40,10 @@ export default function Login({ setIsLoggedIn }) {
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-          <div className="space-y-5">
+        <form className="mt-6 sm:mt-8 space-y-5 sm:space-y-6" onSubmit={handleSubmit}>
+          <div className="space-y-4 sm:space-y-5">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
                 Email address
               </label>
               <input
@@ -51,15 +51,14 @@ export default function Login({ setIsLoggedIn }) {
                 name="email"
                 type="email"
                 autoComplete="email"
-                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="block w-full px-4 py-3 border border-gray-600 bg-gray-700/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-500"
+                className="block w-full px-4 py-3 border border-slate-600 bg-slate-700/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-white placeholder-slate-400"
                 placeholder="Enter your email"
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+              <label htmlFor="password" className="block text-sm font-medium text-slate-300 mb-2">
                 Password
               </label>
               <input
@@ -67,54 +66,53 @@ export default function Login({ setIsLoggedIn }) {
                 name="password"
                 type="password"
                 autoComplete="current-password"
-                required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="block w-full px-4 py-3 border border-gray-600 bg-gray-700/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-white placeholder-gray-500"
+                className="block w-full px-4 py-3 border border-slate-600 bg-slate-700/50 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all duration-300 text-white placeholder-slate-400"
                 placeholder="Enter your password"
               />
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between text-sm">
             <div className="flex items-center">
               <input
                 id="remember-me"
                 name="remember-me"
                 type="checkbox"
-                className="h-4 w-4 text-teal-500 focus:ring-teal-500 border-gray-600 rounded bg-gray-700"
+                className="h-4 w-4 text-teal-500 focus:ring-teal-500 border-slate-600 rounded bg-slate-700"
               />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-300">
+              <label htmlFor="remember-me" className="ml-2 block text-slate-300">
                 Remember me
               </label>
             </div>
 
-            <div className="text-sm">
+            <div>
               <a href="#" className="font-medium text-teal-400 hover:text-teal-300 transition-colors duration-300">
                 Forgot password?
               </a>
             </div>
           </div>
 
-          <div>
+          <div className="space-y-4">
             <button
               type="submit"
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-gray-900 bg-gradient-to-r from-teal-500 to-purple-600 hover:from-teal-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all duration-300 shadow-lg shadow-purple-900/30 transform hover:scale-105"
+              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-xl text-white bg-gradient-to-r from-teal-500 to-purple-600 hover:from-teal-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               Sign in
             </button>
-          </div>
 
-          <div className="text-center">
-            <p className="text-sm text-gray-400">
-              New to StudentCare?{" "}
-              <Link
-                to="/dashboard"
-                className="font-medium text-teal-400 hover:text-teal-300 transition-colors duration-300"
-              >
-                Create an account
-              </Link>
-            </p>
+            <div className="text-center">
+              <p className="text-sm text-slate-400">
+                New to StudentCare?{" "}
+                <Link
+                  to="/signup"
+                  className="font-medium text-teal-400 hover:text-teal-300 transition-colors duration-300"
+                >
+                  Create an account
+                </Link>
+              </p>
+            </div>
           </div>
         </form>
       </div>
